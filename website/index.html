@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Journal</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+  <div id="app">
+    <img src="./svg/forecastcloud-moon-tear (1).svg" style="width: 50px;">
+    <div class="holder__headline">
+      Weather Journal App
+    </div>
+
+    <div class="holder__zip">
+      <img src="./svg/map (1).svg" style="width: 50px;">
+      <input type="text" id="zip" placeholder="Enter zip code">
+    </div>
+    <div id="holder__feel" class="holder__feel">
+      <label for="feelings" class="feelingsTitle"><img src="./svg/book-reader (1).svg" style="width: 50px;"></label>
+      <textarea class="myInput" id="feelings" placeholder="How are you feeling today?" cols="38" rows="1"></textarea>
+
+    </div>
+    <div class="holder__entry">
+      <div class="title">Most Recent Entry</div>
+      <div id="entryHolder">
+        <div id="date"></div>
+        <div id="city"></div>
+        <div id="description"></div>
+        <div id="temp"></div>
+        <div id="content"></div>
+      </div>
+    </div>
+    <div class="btnArea">
+      <button id="generate" type="submit"> Generate </button>
+      <button id="reset" type="submit"> Reset </button>
+    </div>
+    <footer>Copyrights reserved @udacity Badi3</footer>
+  </div>
+
+  <script src="app.js" type="text/javascript"></script>
+
+</body>
+
+</html>
