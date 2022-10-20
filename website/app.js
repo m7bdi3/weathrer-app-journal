@@ -2,7 +2,7 @@
 const apiKey = "c3dabfd2679a4d3f011aba561a6c290f";
 const apiUrl = "http://localhost:4000/"
 const myZipCode = document.getElementById('zip');
-const getMyFeelings = document.getElementById('feelings');
+const myFeelings = document.getElementById('feelings');
 const projectDate = document.getElementById('date');
 const projectTemp = document.getElementById('temp');
 const projectContent = document.getElementById('content');
@@ -20,7 +20,7 @@ document.getElementById('reset').addEventListener('click', resetBtn);
 function generate () {
     let data = {
         zipCode: myZipCode.value,
-        content: getMyFeelings.value,
+        content: myFeelings.value,
         date: dateNow
     };
 
