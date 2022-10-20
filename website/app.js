@@ -1,7 +1,7 @@
 /* Global Variables */
 const apiKey = "c3dabfd2679a4d3f011aba561a6c290f";
 const apiUrl = "http://localhost:4000/"
-const myZipCode = document.getElementById('zip');
+const mylocationInfo = document.getElementById('zip');
 const myFeelings = document.getElementById('feelings');
 const projectDate = document.getElementById('date');
 const projectTemp = document.getElementById('temp');
@@ -19,19 +19,19 @@ document.getElementById('generate').addEventListener('click', generate);
 document.getElementById('reset').addEventListener('click', resetBtn);
 function generate () {
     let data = {
-        zipCode: myZipCode.value,
+        locationInfo: mylocationInfo.value,
         content: myFeelings.value,
         date: dateNow
     };
 
-    getZipCode(data.zipCode).then(zipData => {
+    getlocationInfo(data.locationInfo).then(infoData => {
 
-        if (zipData.cod != 200) {
-            return alert(zipData.message)
+        if (infoData.cod != 200) {
+            return alert(infoData.message)
         }
-        data.temp = zipData.main.temp;
-        data.city = zipData.name;
-        data.description = zipData.weather[0].description;
+        data.temp = infoData.main.temp;
+        data.city = infoData.name;
+        data.description = infoData.weather[0].description;
         postToServer(data);
     })
 };
@@ -39,8 +39,8 @@ function generate () {
 function resetBtn(){location.reload()};
 
 
-async function getZipCode(zipCode) {
-    return await (await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${myZipCode.value}&appid=${apiKey}&units=imperial`)).json();
+async function getlocationInfo(locationInfo) {
+    return await (await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${mylocationInfo.value}&appid=${apiKey}&units=imperial`)).json();
 }
 
 async function postToServer(data) {
