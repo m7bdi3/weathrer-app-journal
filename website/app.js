@@ -25,17 +25,13 @@ function generate () {
     };
 
     getlocationInfo(data.locationInfo).then(infoData => {
-
-        if (infoData.cod != 200) {
-            return alert(infoData.message)
-        }
         data.temp = infoData.main.temp;
         data.city = infoData.name;
         data.description = infoData.weather[0].description;
         postToServer(data);
     })
 };
-
+// Reload the page
 function resetBtn(){location.reload()};
 
 
