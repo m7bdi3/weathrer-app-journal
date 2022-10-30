@@ -47,7 +47,8 @@ body {
 }
 
 input#zip {
-    padding: 8px;
+    text-align: start;
+    padding-left: 16px;
 }
 
 .holder__entry {
@@ -65,8 +66,15 @@ input#zip {
 textarea#feelings {
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 305px;
+    max-height: 45px;
+}
+
+textarea#feelings.myInput {
+text-align: start;
+
 }
 
 .feelingsTitle {
