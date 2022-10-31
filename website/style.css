@@ -68,12 +68,14 @@ textarea#feelings {
     padding-bottom: 16px;
     padding-left: 16px;
     padding-right: 16px;
-    max-width: 305px;
+    
     max-height: 45px;
 }
 
 textarea#feelings.myInput {
 text-align: start;
+width: 310px;
+max-width: 310px;
 
 }
 
