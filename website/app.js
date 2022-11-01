@@ -59,11 +59,6 @@ async function postToServer(data) {
 
     });
     try {
-        if (!response) {
-            alert('Not successful');
-            return;
-        }
-
         response.json().then(data => {
             if (response) {
                 changeAppUi();
