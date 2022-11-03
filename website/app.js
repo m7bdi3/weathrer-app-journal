@@ -1,7 +1,7 @@
 /* Global Variables */
 const apiKey = "c3dabfd2679a4d3f011aba561a6c290f";
 const apiUrl = "http://localhost:4000/"
-const mylocationInfo = document.getElementById('zip');
+const zipLoc = document.getElementById('zip');
 const myFeelings = document.getElementById('feelings');
 const projectDate = document.getElementById('date');
 const projectTemp = document.getElementById('temp');
@@ -19,16 +19,16 @@ document.getElementById('generate').addEventListener('click', generate);
 document.getElementById('reset').addEventListener('click', resetBtn);
 function generate() {
     let data = {
-        locationInfo: mylocationInfo.value,
+        InfoLocZip: zipLoc.value,
         content: myFeelings.value,
         date: dateNow
     };
 
-    getlocationInfo(data.locationInfo).then(infoData => {
+    getInfo(data.InfoLocZip).then(infoData => {
         data.temp = infoData.main.temp;
         data.city = infoData.name;
         data.description = infoData.weather[0].description;
-        postToServer(data);
+        postProject(data);
     });
 //Added the loading icon and make it disappear after 0.3 sec
     setTimeout(() => {
@@ -45,11 +45,11 @@ function generate() {
 // Reload the page
 function resetBtn() { location.reload() };
 
-async function getlocationInfo(locationInfo) {
-    return await (await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${mylocationInfo.value}&appid=${apiKey}&units=imperial`)).json();
+async function getInfo(InfoLocZip) {
+    return await (await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipLoc.value}&appid=${apiKey}&units=imperial`)).json();
 }
 
-async function postToServer(data) {
+async function postProject(data) {
     let response = await fetch(`${apiUrl}postData`, {
         method: 'POST',
         headers: {
@@ -61,7 +61,7 @@ async function postToServer(data) {
     try {
         response.json().then(data => {
             if (response) {
-                changeAppUi();
+                changeLayout();
             } else {
                 alert('Not successful')
             }
@@ -73,7 +73,7 @@ async function postToServer(data) {
 };
 
 
-async function changeAppUi() {
+async function changeLayout() {
     
     let response = await fetch(`${apiUrl}getData`, {
         method: 'GET',
