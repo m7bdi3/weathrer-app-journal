@@ -2,7 +2,7 @@
 
 body {
     display: flex;
-    background: #7fa6ac;
+    background: #0f0f25;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     flex-wrap: nowrap;
     align-items: center;
@@ -68,7 +68,7 @@ body {
     align-content: space-evenly;
     border: none;
     border-radius: 0.4rem;
-    background: #dadada;
+    background: #ffffff0d;
     color: #637371;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -77,7 +77,7 @@ body {
 
 .holder__headline {
     font-size: larger;
-    color: #cfba44;
+    color: #f3c096;
     font-family: Silkscreen, 'Times New Roman', Times, serif;
     padding: 12px;
 }

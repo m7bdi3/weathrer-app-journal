@@ -10,7 +10,7 @@ const path = require('path');
 
 //Add port 
 
-const port = 4000;
+const port = 3000;
 
 // Start up an instance of app
 const app = express();
