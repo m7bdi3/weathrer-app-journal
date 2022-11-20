@@ -46,6 +46,7 @@ app.get('/getData', (request, response) => {
 //POST
 
 app.post('/postData', (request, response) => {
+    projectData = {}
     projectData = {
         temp: request.body.temp,
         date: request.body.dateNow,
