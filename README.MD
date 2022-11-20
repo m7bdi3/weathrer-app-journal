@@ -9,3 +9,5 @@ Udacity Weather Journal App
 - changed UI style with css.
 
 - Added a reset button to reset the page.
+You can view the APP here : 
+https://m7bdi3.github.io/weathrer-app-journal/website/index.html
