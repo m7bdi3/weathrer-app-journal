@@ -24,7 +24,17 @@ let newDate = d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
 //                        Main Event Listeners                          //
 //////////////////////////////////////////////////////////////////////////
 document.getElementById('generate').addEventListener('click', main);
+document.getElementById('feelings','zip').addEventListener('keypress', enterKeyPressed);
+document.getElementById('zip').addEventListener('keypress', enterKeyPressed);
 
+function enterKeyPressed(event) {
+    if (event.keyCode == 13) {
+      // console.log("Enter key is pressed");
+       return main();
+    } else {
+       return false;
+    }
+ }
 // Reload the page
 
 document.getElementById('reset').addEventListener('click', function () { location.reload() });
@@ -50,7 +60,7 @@ function btnAction2(e) {
     ////      Function to Fetcg Data from API and posting it to server Function      ////
     fetchAndPost(apiUrl2, locationCode, apikey)
         .then(data => {
-            console.log(data);
+           // console.log(data);
             let dataFetched = {
                 date: newDate,
                 temp: data.main.temp,
@@ -83,7 +93,7 @@ function btnAction(e) {
     ////      Function to Fetcg Data from API and posting it to server Function      ////
     fetchAndPost(apiUrl1, locationCode, apikey)
         .then(data => {
-            console.log(data);
+           // console.log(data);
             let dataFetched = {
                 date: newDate,
                 temp: data.main.temp,
@@ -117,7 +127,7 @@ const fetchAndPost = async (apiUrl1, zipCode, apiKey) => {
     const res = await fetch(apiUrl1 + zipCode + apiKey);
     try {
         const data = await res.json();
-        console.log(data)
+       // console.log(data)
         return data;
     } catch (error) {
         console.log("error", error);
@@ -136,7 +146,7 @@ const postweather = async (url = '', data = {}) => {
 
     try {
         const newData = await response.json();
-        console.log(newData);
+       // console.log(newData);
         return newData;
     } catch (error) {
         console.log("error", error);
@@ -148,7 +158,7 @@ const weatherGet = async () => {
     const req = await fetch('/getData');
     try {
         const dataGet = await req.json();
-        console.log(dataGet);
+      //  console.log(dataGet);
         //convert to Celcius
         let c = (5 / 9) * ((dataGet.temp) - 32);
         weatherDate.innerHTML = `Today date is: ${newDate}`;
